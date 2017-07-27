@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/tasks', function () {return view('/tasks/index');});
 
 Route::get('/tasks', 'TaskController@index');
 
@@ -21,12 +19,12 @@ Route::get('/tasks/create', 'TaskController@create');
 
 Route::get('/tasks/gettask/{id}','TaskController@gettask');
 
+Route::get('/tasks/deletetask/{id}', 'TaskController@delete');
+
+Route::get('/tasks/changesatus/{id}', 'TaskController@changeTaskStatus');
+
 Route::post('/tasks/save', 'TaskController@store');
 
 Route::post('/tasks/update/{id}', 'TaskController@update');
 
-Route::get('/tasks/deletetask/{id}', 'TaskController@delete');
-
 Route::post('/tasks/deletetaskform/', 'TaskController@deleteTask');
-
-Route::get('/tasks/changesatus/{id}', 'TaskController@changeTaskStatus');
